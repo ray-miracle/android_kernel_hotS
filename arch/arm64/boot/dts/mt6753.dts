@@ -1,22 +1,10 @@
-/*
- * Copyright (c) 2015 MediaTek Inc.
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 as
- * published by the Free Software Foundation.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- */
-
 #include <generated/autoconf.h>
 #include <dt-bindings/clock/mt6735-clk.h>
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <dt-bindings/interrupt-controller/irq.h>
 #include "mt6735-pinfunc.h"
 #include <dt-bindings/mmc/mt67xx-msdc.h>
+
 #ifdef CONFIG_MTK_DTBO_FEATURE
 /dts-v1/;
 #endif
@@ -1714,6 +1702,13 @@ initrd=0x44000000,0x300000 loglevel=8 androidboot.hardware=mt6735";
 
 		lcm: lcm {
 			compatible = "mediatek,mt6753p1_64-lcm";
+		};
+
+		lcm_j5080_gpio_node: lcm_j5080_gpio_node {
+			compatible = "mediatek,lcm_j5080_gpio_node";
+			lcm_gpio_enn = <&pio 78 0>; 
+			lcm_gpio_enp = <&pio 80 0>;
+			lcm_rst_pin = <&pio 146 0>;
 		};
 
 		lcm_mode: lcm_mode {
